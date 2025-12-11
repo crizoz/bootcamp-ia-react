@@ -94,4 +94,4 @@ To run any module locally:
 ## 🍿 Demo
 
 
-Live project hosted at: **aibootcampunabtest.netlify.app**
+Live project hosted at: [Netlify Demo](https://aibootcampunabtest.netlify.app)
