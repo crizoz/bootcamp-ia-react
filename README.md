@@ -1,97 +1,82 @@
 # 🤖 AI Generative Bootcamp Platform
 
-A comprehensive educational web platform built with React and Vite designed to teach Generative AI tools (ChatGPT & Gemini) to students entering university.
+A professional, high-end educational web platform built with **React** and **Vite**, designed to teach Generative AI tools (ChatGPT & Gemini) to engineering students.
 
-- Note: This project was developed as part of my internship (Práctica) at Universidad Andrés Bello (UNAB), specifically for the Faculty of Engineering.
+> **Note**: This project was developed as part of my internship (Práctica) at Universidad Andrés Bello (UNAB), specifically for the Faculty of Engineering.
 
-I built this project to modernize the way academic tools are taught to high school students (3rd & 4th Medio), moving away from static slides to an interactive, gamified web experience that simulates real AI environments.
 
-## 📦 Technologies
 
-- `Vite`
-- `React.js`
-- `Tailwind CSS`
-- `Lucide React`
+## 🎯 The Vision
+I built this project to modernize the way academic tools are taught to high school and university students, moving away from static slides to an interactive, gamified web experience that simulates real AI environments.
+
+## 🏗️ Evolution: From Static to Modular (The Big Refactor)
+Originally built as a series of independent pages, the project has evolved into a **Data-Driven Modular Architecture**. 
+- **The Slide Engine**: A custom React-based engine that renders layouts dynamically.
+- **Scalability**: Content is decoupled from the UI. Adding new lessons now only requires updating a JSON-like data structure.
+- **Clean Code Standard**: Implemented JSDoc documentation, optimized hooks, and professional component separation.
+
+
+
+## 🚀 Key Features
+
+- **The Versus Mode**: High-impact interactive comparison between ChatGPT and Gemini with dynamic transitions.
+- **Interactive Simulations**: Simulated chat interfaces that mimic real AI interactions (Prompt Engineering) without external accounts.
+- **AI Quiz Engine**: An automated tool that mimics AI "thinking" to generate questions and provide personalized feedback.
+- **Dynamic Checklists & Rubrics**: Progress tracking via "Flight Checklists" and automated "AI Rubrics" to audit student prompts.
+- **Resource Hub**: One-click access to download synthesized PDF summaries (Papers) optimized for students.
+
+## 📦 Tech Stack
+
+- `React 18` (Functional Components & Hooks)
+- `Vite` (Next-gen build tool)
+- `Tailwind CSS` (Glassmorphism & Advanced Animations)
+- `Lucide React` (Modern iconography)
 - `JavaScript (ES6+)`
-- `HTML5 / CSS3`
-- `AWS (APACHE2)`
+- `AWS (EC2 / Apache2)`
 
-## 🚀 Features
+## 👩🏽‍🍳 The Development Process
 
-Here's what students can do with the platform:
+### 1. Research & Design
+I started by designing a modular architecture. Instead of a single giant app, I built independent Single Page Applications (SPAs) for each day of the bootcamp. This allowed for better organization during the internship phase.
 
-- **Modular Navigation**: Access a central Portal that distributes content into 4 distinct modules (Fundamentals, Synthesis, Evaluation, and Final Project).
+### 2. The Presentation Engine
+I created reusable layouts like 'Hero', 'Split-Screen', and 'Interactive-Quiz'. This "DRY" (Don't Repeat Yourself) approach allowed me to focus on interactive features rather than rewriting HTML for every slide.
 
-- **Interactive Simulations**: Experience simulated chat interfaces that mimic real AI interactions to teach Prompt Engineering without needing external accounts.
+### 3. Deployment & DevOps
+Since I needed to host multiple modules on a single AWS server, I configured Vite to use relative paths (`base: './'`). I managed the EC2 instance using Apache2, organizing modules into subfolders without breaking the routing.
 
-- **Dynamic Checklists**: Users can track their progress through "Flight Checklists" and "Rubrics" to ensure their prompts meet quality standards.
+### 4. Professional Refactoring
+The final stage (Current Commit) involved modularizing the "Spaghetti Code" into independent React components. I implemented professional standards: JSDoc, Jsx-clean formatting, and centralized theme-based styling.
 
-- **Resource Hub**: One-click access to download synthesized PDF summaries (Papers) generated specifically for print and digital study.
 
-- **Responsive Design**: Fully optimized for classroom projectors and students' mobile devices.
 
-### 🎯 Key Components:
+## 📚 Key Learnings
 
-- **The Landing Portal**: A central hub to route users between different courses.
-- **The Slides Engine**: A custom-built presentation engine using React state to navigate through lessons.
-- **The Art Challenge**: An interactive "Real vs AI" image comparison tool.
-- **Safety Protocols**: Visual guides on AI Hallucinations and ethical use.
+### 🧠 Frontend Architecture:
+- **Component Reusability**: Created a data-driven approach where content is stored in arrays and rendered by a single master component.
+- **State Management**: Used React state to create "artificial delays," making the platform feel like a real processing AI.
 
-## 👩🏽‍🍳 The Process
+### 🛤️ DevOps & Deployment:
+- **Vite Mastery**: Understanding base paths for subdirectories in production.
+- **Server Management**: Setting up EC2, configuring Apache2, and managing static builds.
 
-I started by designing a modular architecture. Instead of a single giant app, I decided to build independent Single Page Applications (SPAs) for each day of the bootcamp. This allowed for better organization and scalability.
+### 🎨 UI/UX Design:
+- **Advanced Tailwind**: Deep dive into backdrop filters, gradients, and custom animations (`animate-pulse`, `animate-scan`) to keep students engaged.
 
-First, I built the **Landing Page** to serve as the main entry point. Then, I focused on the **Presentation Engine**, creating reusable layouts like 'Hero', 'Split-Screen', and 'Interactive-Quiz' to avoid rewriting code for every slide.
-
-Next, I tackled the challenge of deployment. Since I needed to host multiple apps on a single AWS server, I had to configure Vite to use relative paths (`base: './'`) so the modules could live inside subfolders without breaking.
-
-To enhance the learning experience, I implemented interactive elements like the "Vs Mode" (ChatGPT vs Gemini) and the "Art Challenge". I also focused heavily on the UI, using Tailwind CSS to create a modern "Dark Mode" aesthetic that keeps students engaged.
-
-Finally, I optimized the project for production, generating static builds for each module and organizing them into a coherent file structure for the Apache server.
-
-Along the way, I documented every technical hurdle, especially the routing issues between modules and the CSS adjustments needed for printing the PDF summaries correctly.
-
-## 📚 What I Learned
-
-During this project, I've picked up important skills in frontend architecture and cloud deployment.
-
-### 🧠 Monorepo Structure:
-- **Architecture**: I learned how to manage a project that contains multiple independent applications under one repository, keeping the code clean and organized.
-
-### 🛤️ Routing & Deployment:
-- **Vite Configuration**: I mastered the `vite.config.js` settings, specifically how `base` paths work when deploying apps to subdirectories on a web server.
-- **Relative Linking**: I understood the importance of relative linking (`./`) versus absolute linking in production environments.
-
-### 🎨 Component Reusability:
-- **DRY Principle**: Instead of hardcoding every slide, I created a data-driven approach where the content is stored in arrays and rendered by a single `Presentation` component. This made updating content incredibly fast.
-
-### 💅 Tailwind CSS Mastery:
-- **Advanced Styling**: I dove deep into gradients, animations (`animate-pulse`, `animate-scan`), and backdrop filters to create a high-end, futuristic look.
-
-### ☁️ AWS & Apache2:
-- **Server Management**: I learned the basics of setting up an EC2 instance, configuring Apache2 to serve static files, and managing permissions for file uploads.
-
-### 📈 Overall Growth:
-This project bridged the gap between code and education. It wasn't just about React; it was about creating a product that solves a real communication problem in the classroom.
-
-## 💭 How can it be improved?
-
-- Add a backend to store student progress and attendance.
-- Implement real-time API connections to OpenAI/Google Gemini (currently simulated).
-- Add a Dark/Light mode toggle.
-- Create an admin panel to edit slide content without touching the code.
+## 💭 Future Improvements
+- **Real API Integration**: Connect to Google Gemini API for live testing.
+- **Backend Sync**: Store student progress and attendance via Firebase.
+- **Admin CMS**: Allow teachers to edit content without touching the code.
 
 ## 🚦 Running the Project
 
-To run any module locally:
-
 1. Clone the repository.
-2. Navigate to the specific folder (e.g., `cd landing-page` or `cd modulo1`).
-3. Run `npm install` to install dependencies.
-4. Run `npm run dev` to start the local server.
-5. Open the localhost link in your browser.
+2. Install dependencies:
+   ```bash
+   npm install
+3. Run `npm run dev` to start the local server.
+4. Open the localhost link in your browser.
 
 ## 🍿 Demo
 
-
-Live project hosted at: **[aibootcampunabtest.netlify.app]**
+Live project hosted at: [Netlify Demo](https://aibootcampunabtest.netlify.app)
