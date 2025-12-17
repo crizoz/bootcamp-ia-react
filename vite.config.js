@@ -9,5 +9,6 @@ export default defineConfig({
     config: './tailwind.config.js',
   }),
   ],
+  base: '/curso-ia/',
 })
 
