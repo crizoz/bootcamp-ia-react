@@ -66,12 +66,12 @@ export const QuizSimulationSlide = ({ slide }) => {
                             {quizState === 'generating' ? (
                                 <div className="flex items-center gap-2 text-orange-400 text-sm animate-pulse font-mono">
                                     <Sparkles size={14} />
-                                    Generating evaluation...
+                                    Generando evaluación...
                                 </div>
                             ) : (
                                 <div className="flex items-center gap-2 text-emerald-400 text-sm font-mono">
                                     <CheckCircle size={14} />
-                                    Question ready
+                                    Pregunta lista
                                 </div>
                             )}
                         </div>
@@ -81,20 +81,20 @@ export const QuizSimulationSlide = ({ slide }) => {
                     <div className="bg-white/5 border border-white/10 p-5 rounded-2xl">
                         <h4 className="text-white font-bold mb-3 flex items-center gap-2 uppercase text-xs tracking-widest">
                             <Brain size={14} className="text-orange-400" />
-                            Evaluation logic
+                            Lógica de evaluación
                         </h4>
                         <ul className="text-sm text-indigo-200 space-y-2">
                             <li className="flex gap-2 items-start">
                                 <span className="text-orange-500">▹</span>
-                                Detects nuances
+                                Detecta errores
                             </li>
                             <li className="flex gap-2 items-start">
                                 <span className="text-orange-500">▹</span>
-                                Personalized feedback
+                                Feedback personalizado
                             </li>
                             <li className="flex gap-2 items-start">
                                 <span className="text-orange-500">▹</span>
-                                Adaptive difficulty
+                                Dificultad adaptativa
                             </li>
                         </ul>
                     </div>
@@ -105,17 +105,17 @@ export const QuizSimulationSlide = ({ slide }) => {
 
                     {quizState === 'generating' ? (
                         <div className="h-full flex items-center justify-center text-indigo-300 font-mono animate-pulse">
-                            DESIGNING QUESTION...
+                            Generando pregunta...
                         </div>
                     ) : (
                         <>
                             <div className="flex justify-between items-start mb-6">
                                 <span className="bg-indigo-600 text-white px-3 py-1 rounded text-xs font-bold uppercase">
-                                    Question 1/1
+                                    Pregunta 1/1
                                 </span>
                                 <div className="flex items-center gap-2 text-orange-300 text-xs font-mono">
                                     <GraduationCap size={14} />
-                                    LEVEL: EXPERT
+                                    Nivel: EXPERTO
                                 </div>
                             </div>
 

@@ -20,7 +20,7 @@ export const InteractiveSlide = ({ slide }) => {
             <div className="text-center space-y-2 md:space-y-4 mb-6 md:mb-8 w-full px-2">
                 <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/20 border border-emerald-400/50 rounded-full text-emerald-300 font-bold uppercase tracking-widest text-xs md:text-sm animate-pulse">
                     <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-                    Enter now
+                    ¡Entra ahora!
                 </div>
 
                 <h2 className="text-4xl md:text-6xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50 tracking-tighter drop-shadow-lg leading-tight break-words">
@@ -55,7 +55,7 @@ export const InteractiveSlide = ({ slide }) => {
                             <div className="flex items-start gap-3 text-xs md:text-sm text-slate-500 font-mono mt-2 md:mt-4 w-full">
                                 <Users size={16} className="shrink-0 mt-0.5" />
                                 <span className="leading-snug break-words">
-                                    Review participant responses in real time
+                                    Revisa las respuestas de los estudiantes en tiempo real
                                 </span>
                             </div>
                         </div>
@@ -73,7 +73,7 @@ export const InteractiveSlide = ({ slide }) => {
 
                                 <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 bg-black text-white px-3 py-1.5 md:px-4 md:py-2 rounded-xl font-bold text-xs md:text-sm shadow-xl flex items-center gap-2 animate-bounce">
                                     <Smartphone size={14} className="md:w-4 md:h-4" />
-                                    Scan
+                                    Escanea
                                 </div>
                             </div>
 

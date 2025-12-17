@@ -12,7 +12,7 @@ export const EthicsAccordionSlide = ({ slide }) => {
                 <div className="inline-flex items-center gap-2 mb-4 px-4 py-1 rounded-full bg-red-900/30 border border-red-500/30 text-red-400 backdrop-blur-md">
                     <ShieldAlert size={16} className="animate-pulse" />
                     <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase">
-                        Safety Protocol
+                        Protocolo de seguridad
                     </span>
                 </div>
 

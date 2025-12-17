@@ -51,7 +51,7 @@ export const DesignPromptSlide = ({ slide }) => {
                         <div className="mt-4 bg-orange-500/10 border border-orange-500/30 p-3 rounded-xl flex gap-3 items-start">
                             <Zap size={16} className="text-orange-400 mt-0.5 shrink-0" />
                             <p className="text-[10px] md:text-xs text-orange-200 leading-snug">
-                                <strong>Tip:</strong> Describe the image in detail using Gemini and paste the result here.
+                                <strong>Tip:</strong> Usa prompts que combinen concepto + visualización concreta + estilo claro, por ejemplo: “Explica X como una ilustración clara y educativa”.
                             </p>
                         </div>
                     </div>

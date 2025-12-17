@@ -59,7 +59,7 @@ export const ErrorAnalysisSlide = ({ slide }) => {
                         </div>
 
                         <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                            HALLUCINATION DETECTED
+                            Alucinación detectada
                         </h3>
 
                         <p className="text-base md:text-lg text-red-100">
@@ -72,8 +72,8 @@ export const ErrorAnalysisSlide = ({ slide }) => {
             {/* Interaction hint */}
             <p className="text-xs md:text-sm text-gray-500 font-mono animate-pulse shrink-0">
                 {isRevealed
-                    ? '(Tap again to hide)'
-                    : 'Hover or tap to reveal the truth'}
+                    ? '(Toca de nuevo para ocultar)'
+                    : 'Pasa el mouse o toca para revelar la verdad'}
             </p>
 
             {/* Custom scrollbar */}
