@@ -60,7 +60,7 @@ export const GrandFinaleSlide = ({ slide }) => {
                             key={i}
                             className={`absolute -top-10 rounded shadow-sm opacity-90 animate-confetti-fall ${['bg-amber-400', 'bg-orange-500', 'bg-red-500', 'bg-yellow-200', 'bg-white'][
                                 Math.floor(Math.random() * 5)
-                                ]
+                            ]
                                 }`}
                             style={{
                                 left: Math.random() * 100 + 'vw',
@@ -79,7 +79,7 @@ export const GrandFinaleSlide = ({ slide }) => {
                 <div className="z-10 flex flex-col items-center animate-fadeIn p-4 text-center relative">
                     <div className="mb-8">
                         <h2 className="text-amber-200/60 tracking-[0.3em] md:tracking-[0.5em] text-xs md:text-sm uppercase mb-2">
-                            Compilación de Arquitectura v1.0
+                            Compilación de Bootcamp IA v1.0
                         </h2>
                         <h1 className="text-4xl md:text-7xl font-black text-white uppercase leading-tight drop-shadow-xl">
                             Listo para Desplegar
@@ -104,7 +104,7 @@ export const GrandFinaleSlide = ({ slide }) => {
                     </button>
 
                     <p className="mt-8 text-amber-400/80 animate-pulse text-sm md:text-base font-bold tracking-widest">
-                        CLICK TO INITIALIZE
+                        CLICK PARA INICIAR
                     </p>
                 </div>
             )}
@@ -132,7 +132,7 @@ export const GrandFinaleSlide = ({ slide }) => {
 
                         <div className="mt-4 pt-4 border-t border-amber-500/20 relative z-10">
                             <div className="flex justify-between text-xs text-amber-400 mb-1 uppercase tracking-wider">
-                                <span>Loading system...</span>
+                                <span>Cargando sistema...</span>
                                 <span>{Math.round(progress)}%</span>
                             </div>
                             <div className="w-full h-3 bg-amber-900/40 rounded-full overflow-hidden">
@@ -179,11 +179,11 @@ export const GrandFinaleSlide = ({ slide }) => {
                                     mb-12 transform hover:scale-105 transition-transform duration-500"
                     >
                         <h2 className="text-3xl md:text-5xl text-white font-black mb-4 uppercase">
-                            Bootcamp Completed
+                            Bootcamp Completado
                         </h2>
                         <div className="h-1.5 w-32 bg-amber-500 mx-auto mb-6 rounded-full shadow-[0_0_10px_rgba(245,158,11,0.8)]" />
                         <p className="text-amber-100 text-sm md:text-xl tracking-[0.2em] uppercase font-bold">
-                            Faculty of Engineering <span className="text-white">UNAB</span>
+                            Facultad de Ingeniería <span className="text-white">UNAB</span>
                         </p>
                     </div>
 

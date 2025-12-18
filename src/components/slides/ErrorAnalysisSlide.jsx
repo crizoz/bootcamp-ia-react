@@ -35,7 +35,7 @@ export const ErrorAnalysisSlide = ({ slide }) => {
                 >
                     <div className="absolute top-4 left-4 flex items-center gap-2 text-red-400 font-mono text-xs md:text-sm">
                         <Bot size={16} />
-                        AI GENERATED RESPONSE
+                        RESPUESTA GENERADA POR IA
                     </div>
 
                     <p className="text-lg md:text-3xl font-serif text-gray-300 leading-relaxed mt-6">

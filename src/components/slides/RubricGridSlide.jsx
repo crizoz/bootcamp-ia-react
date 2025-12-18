@@ -60,7 +60,7 @@ export const RubricGridSlide = ({ slide }) => {
 
                                     <div className="flex justify-end mt-1">
                                         <span className="text-[10px] font-mono text-amber-500 opacity-0 group-hover:opacity-100 transition-opacity delay-300">
-                                            CHECK PASSED
+                                            CHECKEADO
                                         </span>
                                     </div>
                                 </div>

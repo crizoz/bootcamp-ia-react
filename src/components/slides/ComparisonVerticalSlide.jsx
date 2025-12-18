@@ -26,7 +26,7 @@ export const ComparisonVerticalSlide = ({ slide }) => {
 
                     <div className="space-y-2 opacity-60 group-hover:opacity-100 transition-opacity duration-300">
                         <p className="text-xs text-slate-500 uppercase font-bold tracking-wider">
-                            Generated response:
+                            Respuesta Generada:
                         </p>
                         <div className="bg-slate-200 text-slate-800 p-4 rounded-r-2xl rounded-bl-2xl text-sm leading-relaxed shadow-inner font-serif italic">
                             "{slide.badOutput}"
@@ -54,7 +54,7 @@ export const ComparisonVerticalSlide = ({ slide }) => {
                     <div className="space-y-2">
                         <p className="text-xs text-indigo-300 uppercase font-bold tracking-wider flex items-center gap-2">
                             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                            Expert response:
+                            Respuesta Experto:
                         </p>
 
                         <div className="bg-white text-indigo-950 p-4 rounded-2xl rounded-tl-none text-sm leading-relaxed shadow-lg font-medium relative transform transition-all duration-300 group-hover:translate-x-1">

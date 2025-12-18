@@ -92,7 +92,7 @@ export const InteractiveSlide = ({ slide }) => {
                                     >
                                         {copied && (
                                             <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-emerald-500 text-black text-[10px] md:text-xs px-2 py-1 rounded font-bold">
-                                                Copied
+                                                Copiado
                                             </span>
                                         )}
                                         <Copy size={18} className="md:w-5 md:h-5" />

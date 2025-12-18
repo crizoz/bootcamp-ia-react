@@ -55,7 +55,7 @@ export const QuizSimulationSlide = ({ slide }) => {
 
                         <div className="flex items-center gap-2 mb-3 text-indigo-400 font-mono text-sm font-bold uppercase tracking-wider">
                             <Terminal size={16} />
-                            User instruction
+                            Instrucción del usuario
                         </div>
 
                         <p className="text-white text-lg leading-relaxed font-medium italic opacity-90">
