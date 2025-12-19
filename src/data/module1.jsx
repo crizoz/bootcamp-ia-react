@@ -139,8 +139,7 @@ export const slidesModule1 = [
         id: 'activity',
         layout: 'ide-checklist-slide',
         title: 'SYSTEM_INIT',
-        subtitle: 'Configura los parámetros de tu nuevo Asistente de Ingeniería.',
-        // Ordered checklist consumed by the IDE-style slide
+        subtitle: 'Abre un txt o un Google Docs y configura los parámetros de tu nuevo Asistente de Ingeniería.',
         tasks: [
             {
                 step: '01',
@@ -169,6 +168,37 @@ export const slidesModule1 = [
         ]
     },
     {
+        id: 'final-quiz',
+        layout: 'module-final-quiz-slide',
+        title: 'TEST DE CONOCIMIENTO',
+        subtitle: 'Demuestra tu dominio sobre Prompt Engineering',
+        systemPrompt: 'Actúa como un evaluador académico estricto pero justo.',
+        questions: [
+            {
+                question: '¿Qué componente del Prompt define la identidad de la IA?',
+                options: ['Contexto', 'Instrucción', 'Rol', 'Variables'],
+                correctIndex: 2,
+                explanation: 'Correcto. El Rol establece el marco cognitivo y el tono de la respuesta.',
+                errorExplanation: 'Incorrecto. El Rol es lo que define "quién" es la IA.'
+            },
+            {
+                question: '¿Cuál es la principal fortaleza de Gemini frente a ChatGPT según el módulo?',
+                options: ['Lógica Pura', 'Multimodalidad nativa', 'Depuración de código', 'Escritura académica'],
+                correctIndex: 1,
+                explanation: 'Exacto. Gemini destaca por ver, escuchar y conectarse a Google en tiempo real.',
+                errorExplanation: 'No. La ventaja clave mencionada es su capacidad multimodal (video/audio).'
+            },
+            {
+                question: '¿Para qué sirve el System Prompt?',
+                options: ['Para configurar la identidad permanente', 'Para hacer búsquedas en Google', 'Para borrar la memoria', 'Para traducir textos'],
+                correctIndex: 0,
+                explanation: '¡Bien! Es como la "Cédula de Identidad" que configura reglas fijas.',
+                errorExplanation: 'Falso. El System Prompt configura el comportamiento base y la identidad.'
+            }
+        ],
+        footer: 'MÓDULO 1 // EVALUACIÓN NEURONAL'
+    },
+    {
         id: 'closing',
         layout: 'hero-slide',
         title: 'PRÓXIMO MÓDULO:',
@@ -176,6 +206,7 @@ export const slidesModule1 = [
         tagline: 'Aprenderemos a transformar textos aburridos y difíciles en oro.',
         footer: '¡SIGUE ASÍ!',
         nextLink: '/curso-ia/modulo2',
-        nextTitle: 'IR AL MÓDULO 2'
+        nextTitle: 'IR AL MÓDULO 2',
+        downloadLink: '/curso-ia/papers/modulo1.pdf'
     }
 ];

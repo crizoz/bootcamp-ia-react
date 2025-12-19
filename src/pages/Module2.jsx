@@ -10,6 +10,7 @@ import { VersusSlide2 } from '../components/slides/VersusV2Slide';
 import { ChatSimulationSlide } from '../components/slides/ChatSimulationSlide';
 import { ProcessFlowSlide } from '../components/slides/ProcessFlowSlide';
 import { ChecklistSlide } from '../components/slides/ChecklistSlide';
+import { ModuleFinalQuizSlide } from '../components/slides/ModuleFinalQuizSlide';
 
 /**
  * Module2
@@ -24,36 +25,21 @@ import { ChecklistSlide } from '../components/slides/ChecklistSlide';
  * Its responsibility is state, navigation and slide routing.
  */
 const Module2 = () => {
-    // Current slide index within the module
     const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Tracks fullscreen state for UI synchronization
     const [isFullscreen, setIsFullscreen] = useState(false);
 
-    /**
-     * Advances to the next slide.
-     * Guarded to prevent overflow beyond slide array length.
-     */
     const nextSlide = useCallback(() => {
         if (currentSlide < slidesModule2.length - 1) {
             setCurrentSlide(c => c + 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Returns to the previous slide.
-     * Guarded to prevent negative indices.
-     */
     const prevSlide = useCallback(() => {
         if (currentSlide > 0) {
             setCurrentSlide(c => c - 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Toggles browser fullscreen mode.
-     * Keeps internal state in sync with the Fullscreen API.
-     */
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
@@ -66,12 +52,6 @@ const Module2 = () => {
         }
     };
 
-    /**
-     * Keyboard navigation handler.
-     * Enables presentation-style controls:
-     * - ArrowRight / Space → next slide
-     * - ArrowLeft → previous slide
-     */
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
@@ -82,13 +62,6 @@ const Module2 = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [nextSlide, prevSlide]);
 
-    /**
-     * Slide Engine router.
-     * Selects which slide component to render based on `slide.layout`.
-     *
-     * This switch is the core extensibility point of the platform:
-     * new slide types can be added without modifying the Layout or data model.
-     */
     const renderContent = (slide) => {
         switch (slide.layout) {
             case 'hero-slide':
@@ -112,7 +85,9 @@ const Module2 = () => {
             case 'checklist-slide':
                 return <ChecklistSlide slide={slide} />;
 
-            // Fallback for unregistered or missing slide layouts
+            case 'module-final-quiz':
+                return <ModuleFinalQuizSlide slide={slide} />;
+
             default:
                 return (
                     <div className="text-white">
@@ -124,7 +99,7 @@ const Module2 = () => {
 
     return (
         <Layout
-            theme="emerald" // Module 2 visual identity
+            theme="emerald"
             currentSlide={currentSlide}
             totalSlides={slidesModule2.length}
             nextSlide={nextSlide}

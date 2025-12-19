@@ -11,6 +11,7 @@ import { QuizSimulationSlide } from '../components/slides/QuizSimulationSlide';
 import { DesignPromptSlide } from '../components/slides/DesignPromptSlide';
 import { MindMapSlide } from '../components/slides/MindMapSlide';
 import { RubricSimulationSlide } from '../components/slides/RubricSimulationSlide';
+import { ModuleFinalQuizSlide } from '../components/slides/ModuleFinalQuizSlide';
 
 /**
  * Module3
@@ -23,36 +24,21 @@ import { RubricSimulationSlide } from '../components/slides/RubricSimulationSlid
  * ensuring architectural consistency across the platform.
  */
 const Module3 = () => {
-    // Current slide index within the module
     const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Tracks fullscreen state to keep UI controls synchronized
     const [isFullscreen, setIsFullscreen] = useState(false);
 
-    /**
-     * Advances to the next slide.
-     * Prevents overflow beyond the available slide range.
-     */
     const nextSlide = useCallback(() => {
         if (currentSlide < slidesModule3.length - 1) {
             setCurrentSlide(c => c + 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Returns to the previous slide.
-     * Prevents underflow below index 0.
-     */
     const prevSlide = useCallback(() => {
         if (currentSlide > 0) {
             setCurrentSlide(c => c - 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Toggles browser fullscreen mode.
-     * Uses the Fullscreen API and mirrors its state internally.
-     */
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
@@ -65,10 +51,6 @@ const Module3 = () => {
         }
     };
 
-    /**
-     * Enables keyboard-based slide navigation.
-     * Designed to emulate a presentation-style experience.
-     */
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
@@ -79,13 +61,6 @@ const Module3 = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [nextSlide, prevSlide]);
 
-    /**
-     * Core Slide Engine router.
-     * Maps `slide.layout` values to concrete slide components.
-     *
-     * This pattern allows new interactive slide types to be added
-     * without changing module-level navigation or layout logic.
-     */
     const renderContent = (slide) => {
         switch (slide.layout) {
             case 'hero-slide':
@@ -112,7 +87,9 @@ const Module3 = () => {
             case 'checklist-slide':
                 return <ChecklistSlide slide={slide} />;
 
-            // Fallback for undefined or unregistered slide layouts
+            case 'module-final-quiz':
+                return <ModuleFinalQuizSlide slide={slide} />;
+
             default:
                 return (
                     <div className="text-white">

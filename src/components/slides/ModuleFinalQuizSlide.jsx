@@ -1,0 +1,246 @@
+import React, { useState } from 'react';
+import {
+    Zap,
+    Brain,
+    ChevronRight,
+    AlertTriangle,
+    Check,
+    Trophy,
+    RefreshCcw
+} from 'lucide-react';
+
+export const ModuleFinalQuizSlide = ({ slide }) => {
+    const [currentQIndex, setCurrentQIndex] = useState(0);
+    const [gameState, setGameState] = useState('intro'); // intro, playing, feedback, finished
+    const [selectedOption, setSelectedOption] = useState(null);
+    const [score, setScore] = useState(0);
+    const [combo, setCombo] = useState(0); // Para hacer "Combos"
+    const [shake, setShake] = useState(false); // Animación de error
+
+    const question = slide.questions[currentQIndex];
+    const totalQuestions = slide.questions.length;
+
+    const getOrbColor = () => {
+        if (gameState === 'feedback') {
+            return selectedOption === question.correctIndex
+                ? 'from-emerald-500 to-cyan-500' // Correcto
+                : 'from-red-600 to-orange-600';  // Incorrecto
+        }
+        if (gameState === 'finished') return 'from-yellow-400 to-purple-600';
+        return 'from-blue-600 to-indigo-600'; // Neutral/Pensando
+    };
+
+    const handleOptionSelect = (idx) => {
+        if (gameState === 'feedback') return;
+
+        setSelectedOption(idx);
+        setGameState('feedback');
+
+        const isCorrect = idx === question.correctIndex;
+
+        if (isCorrect) {
+            setScore(s => s + 1);
+            setCombo(c => c + 1);
+        } else {
+            setCombo(0);
+            setShake(true);
+            setTimeout(() => setShake(false), 500);
+        }
+    };
+
+    const nextQuestion = () => {
+        if (currentQIndex < totalQuestions - 1) {
+            setCurrentQIndex(prev => prev + 1);
+            setGameState('playing');
+            setSelectedOption(null);
+        } else {
+            setGameState('finished');
+        }
+    };
+
+    const restartGame = () => {
+        setCurrentQIndex(0);
+        setScore(0);
+        setCombo(0);
+        setGameState('playing');
+        setSelectedOption(null);
+    };
+
+    if (gameState === 'intro') {
+        return (
+            <>
+                <style>{`
+                    @keyframes shake {
+                        0%, 100% { transform: translateX(0); }
+                        10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+                        20%, 40%, 60%, 80% { transform: translateX(4px); }
+                    }
+                    .animate-shake {
+                        animation: shake 0.4s cubic-bezier(.36,.07,.19,.97) both;
+                    }
+                `}</style>
+
+                <div className="w-full max-w-4xl mx-auto h-full flex flex-col items-center justify-center relative z-10 px-4">
+                    <div className="flex flex-col items-center justify-center h-full animate-fadeIn relative z-10">
+                        <div className="absolute inset-0 bg-blue-600/20 blur-[100px] rounded-full transform scale-50 animate-pulse" />
+
+                        <h1 className="text-6xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white to-blue-200 mb-6 text-center leading-tight">
+                            {slide.title}
+                        </h1>
+
+                        <div className="bg-slate-900/80 backdrop-blur-md border border-white/10 p-8 rounded-3xl max-w-lg text-center shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                            <Brain size={64} className="text-cyan-400 mx-auto mb-6" />
+                            <p className="text-xl text-indigo-200 mb-8 font-light">
+                                {slide.subtitle}
+                            </p>
+                            <button
+                                onClick={() => setGameState('playing')}
+                                className="w-full py-4 bg-white text-slate-900 font-black tracking-widest rounded-xl hover:bg-cyan-400 transition-colors shadow-lg hover:shadow-cyan-500/50 flex items-center justify-center gap-2"
+                            >
+                                <Zap fill="currentColor" /> INICIAR SINCRONIZACIÓN
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </>
+        );
+    }
+
+    if (gameState === 'finished') {
+        const percentage = Math.round((score / totalQuestions) * 100);
+        return (
+            <div className="flex flex-col items-center justify-center h-full animate-fadeIn relative z-10">
+                <div className={`absolute inset-0 bg-gradient-to-tr ${getOrbColor()} blur-[120px] opacity-40`} />
+
+                <div className="bg-slate-950/90 border border-white/20 p-10 rounded-[3rem] text-center max-w-2xl w-full shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-400 via-purple-500 to-blue-500" />
+
+                    <Trophy size={80} className="text-yellow-400 mx-auto mb-6 drop-shadow-glow animate-bounce" />
+
+                    <h2 className="text-5xl font-black text-white mb-2">
+                        {percentage === 100 ? '¡SINCRONIZACIÓN TOTAL!' : 'ENTRENAMIENTO COMPLETADO'}
+                    </h2>
+
+                    <div className="text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white to-slate-500 my-8">
+                        {percentage}%
+                    </div>
+
+                    <p className="text-indigo-300 text-lg mb-8 px-8">
+                        {percentage === 100
+                            ? "Tu lógica es impecable. Estás listo para liderar la revolución IA."
+                            : "Buen intento. La IA aprende de los errores, y tú también deberías."}
+                    </p>
+
+                    <button
+                        onClick={restartGame}
+                        className="px-8 py-3 rounded-full border border-white/20 text-white font-mono hover:bg-white/10 transition-colors flex items-center gap-2 mx-auto"
+                    >
+                        <RefreshCcw size={16} /> REINICIAR SIMULACIÓN
+                    </button>
+                </div>
+            </div>
+        );
+    }
+
+    return (
+        <div className="w-full max-w-4xl mx-auto h-full flex flex-col items-center justify-center relative z-10 px-4">
+            <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[150%] h-[150%] md:w-[800px] md:h-[800px] bg-gradient-to-r ${getOrbColor()} rounded-full blur-[100px] opacity-20 transition-all duration-700 pointer-events-none`} />
+            <div className="w-full flex justify-between items-end mb-8 relative z-20">
+                <div>
+                    <div className="text-xs font-mono text-cyan-400 mb-1 tracking-widest">PROGRESO DEL SISTEMA</div>
+                    <div className="flex gap-1">
+                        {slide.questions.map((_, i) => (
+                            <div
+                                key={i}
+                                className={`h-2 w-8 rounded-full transition-all duration-500 ${i < currentQIndex ? 'bg-cyan-400' :
+                                    i === currentQIndex ? 'bg-white animate-pulse' : 'bg-white/10'
+                                    }`}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                {combo > 1 && (
+                    <div className="animate-bounce text-right">
+                        <div className="text-2xl font-black italic text-yellow-400 tracking-tighter drop-shadow-lg">
+                            COMBO x{combo}!
+                        </div>
+                    </div>
+                )}
+            </div>
+            <div className={`relative w-full bg-slate-900/60 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl transition-transform duration-300 ${shake ? 'animate-shake border-red-500/50' : ''}`}>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-bold text-indigo-300 uppercase tracking-wider mb-6">
+                    <Brain size={12} />
+                    Desafío de Lógica
+                </div>
+                <h3 className="text-2xl md:text-4xl font-bold text-white mb-10 leading-tight">
+                    {question.question}
+                </h3>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {question.options.map((opt, idx) => {
+                        const isSelected = selectedOption === idx;
+                        const isCorrect = idx === question.correctIndex;
+                        const showResult = gameState === 'feedback';
+
+                        let styleClass = "border-white/10 hover:bg-white/5 hover:border-white/30 text-indigo-100";
+
+                        if (showResult) {
+                            if (isCorrect) {
+                                styleClass = "bg-emerald-500/20 border-emerald-500 text-white shadow-[0_0_30px_rgba(16,185,129,0.3)]";
+                            } else if (isSelected && !isCorrect) {
+                                styleClass = "bg-red-500/20 border-red-500 text-red-200 opacity-100";
+                            } else {
+                                styleClass = "opacity-30 border-transparent blur-[1px]";
+                            }
+                        } else if (isSelected) {
+                            styleClass = "bg-white text-slate-900 border-white scale-[1.02]";
+                        }
+
+                        return (
+                            <button
+                                key={idx}
+                                onClick={() => handleOptionSelect(idx)}
+                                disabled={gameState === 'feedback'}
+                                className={`relative p-6 rounded-2xl border-2 text-left font-semibold transition-all duration-300 group ${styleClass}`}
+                            >
+                                <div className="flex items-center justify-between">
+                                    <span>{opt}</span>
+                                    {showResult && isCorrect && <Check className="text-emerald-400" />}
+                                    {showResult && isSelected && !isCorrect && <AlertTriangle className="text-red-400" />}
+                                </div>
+                            </button>
+                        );
+                    })}
+                </div>
+                {gameState === 'feedback' && (
+                    <div className="mt-8 pt-6 border-t border-white/10 animate-fadeInUp">
+                        <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+                            <div>
+                                <h4 className={`text-lg font-black uppercase mb-1 ${selectedOption === question.correctIndex ? 'text-emerald-400' : 'text-orange-400'
+                                    }`}>
+                                    {selectedOption === question.correctIndex ? '¡Respuesta Correcta!' : 'Error de Cálculo'}
+                                </h4>
+                                <p className="text-sm text-slate-300 leading-relaxed max-w-xl">
+                                    {selectedOption === question.correctIndex
+                                        ? question.explanation
+                                        : (question.errorExplanation || "Intenta repasar el concepto.")}
+                                </p>
+                            </div>
+
+                            <button
+                                onClick={nextQuestion}
+                                className="px-8 py-3 bg-white text-slate-900 font-bold rounded-xl hover:scale-105 transition-transform shadow-lg flex items-center gap-2 whitespace-nowrap"
+                            >
+                                {currentQIndex < totalQuestions - 1 ? 'SIGUIENTE' : 'VER RESULTADOS'} <ChevronRight size={18} />
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+
+            <div className="mt-8 text-white/20 font-mono text-xs uppercase tracking-[0.3em]">
+                {slide.footer || "EVALUACIÓN DEL SISTEMA"}
+            </div>
+        </div>
+    );
+};

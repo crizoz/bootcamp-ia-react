@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Layout } from '../components/Layout';
 import { slidesModule4 } from '../data/module4';
-
-// Slide layout components used in the final module
 import { HeroSlide } from '../components/slides/HeroSlide';
 import { BigStatementSlide } from '../components/slides/BigStatementSlide';
 import { ErrorAnalysisSlide } from '../components/slides/ErrorAnalysisSlide';
@@ -11,6 +9,7 @@ import { RubricGridSlide } from '../components/slides/RubricGridSlide';
 import { ProjectStackSlide } from '../components/slides/ProjectStackSlide';
 import { DeploymentChecklistSlide } from '../components/slides/DeploymentChecklistSlide';
 import { FinalChecklistSlide } from '../components/slides/FinalChecklistSlide';
+import { ModuleFinalQuizSlide } from '../components/slides/ModuleFinalQuizSlide';
 import { GrandFinaleSlide } from '../components/slides/GrandFinaleSlide';
 
 /**
@@ -24,34 +23,20 @@ import { GrandFinaleSlide } from '../components/slides/GrandFinaleSlide';
  * ensuring consistency, maintainability and scalability.
  */
 const Module4 = () => {
-    // Tracks the current slide index
     const [currentSlide, setCurrentSlide] = useState(0);
-
-    // Keeps fullscreen UI state in sync with the browser Fullscreen API
     const [isFullscreen, setIsFullscreen] = useState(false);
-
-    /**
-     * Advances to the next slide while preventing overflow.
-     */
     const nextSlide = useCallback(() => {
         if (currentSlide < slidesModule4.length - 1) {
             setCurrentSlide(c => c + 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Navigates to the previous slide while preventing underflow.
-     */
     const prevSlide = useCallback(() => {
         if (currentSlide > 0) {
             setCurrentSlide(c => c - 1);
         }
     }, [currentSlide]);
 
-    /**
-     * Toggles fullscreen presentation mode.
-     * This improves immersion during the final delivery and presentation.
-     */
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
@@ -62,10 +47,6 @@ const Module4 = () => {
         }
     };
 
-    /**
-     * Enables keyboard navigation to replicate a live presentation workflow.
-     * Arrow keys and spacebar provide seamless slide control.
-     */
     useEffect(() => {
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
@@ -76,13 +57,6 @@ const Module4 = () => {
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [nextSlide, prevSlide]);
 
-    /**
-     * Central Slide Engine router.
-     * Determines which slide component to render based on the layout identifier.
-     *
-     * This decouples content structure from rendering logic,
-     * allowing new slide types to be added without modifying navigation flow.
-     */
     const renderContent = (slide) => {
         switch (slide.layout) {
             case 'hero-slide':
@@ -109,10 +83,12 @@ const Module4 = () => {
             case 'final-checklist-slide':
                 return <FinalChecklistSlide slide={slide} />;
 
+            case 'module-final-quiz-slide':
+                return <ModuleFinalQuizSlide slide={slide} />;
+
             case 'grand-finale-slide':
                 return <GrandFinaleSlide slide={slide} />;
 
-            // Final module assumes all layouts are controlled and validated
             default:
                 return null;
         }
@@ -120,7 +96,7 @@ const Module4 = () => {
 
     return (
         <Layout
-            theme="amber" // Final module visual identity
+            theme="amber"
             currentSlide={currentSlide}
             totalSlides={slidesModule4.length}
             nextSlide={nextSlide}

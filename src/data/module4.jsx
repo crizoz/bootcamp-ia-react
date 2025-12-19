@@ -1,4 +1,4 @@
-import { AlertTriangle } from 'lucide-react';
+import { AlertTriangle, Download } from 'lucide-react';
 
 /**
  * slidesModule4
@@ -207,9 +207,105 @@ export const slidesModule4 = [
         usageTip: '>> INSTRUCCIÓN DE INICIO: Copia tu Prompt Maestro -> Abre Chat -> Pega -> "Hola, estoy listo para estudiar".'
     },
     {
+        id: 'final-quiz',
+        layout: 'module-final-quiz-slide',
+        title: 'JUICIO FINAL',
+        subtitle: 'DEMUESTRA QUE ERES EL PILOTO',
+
+        questions: [
+            {
+                question: 'Módulo 1: Para definir la "personalidad" y el comportamiento base de tu Asistente, ¿qué componente es el más crítico?',
+                options: [
+                    'El saludo inicial',
+                    'El System Prompt (Rol e Identidad)',
+                    'La longitud del texto',
+                    'El uso de emojis'
+                ],
+                correctIndex: 1,
+                explanation: 'Correcto. El System Prompt es el "ADN" o la Cédula de Identidad de la IA. Sin un Rol definido, es solo un chatbot genérico.',
+                errorExplanation: 'Incorrecto. El saludo es superficial. El comportamiento profundo se define instruyendo el ROL en el System Prompt.'
+            },
+            {
+                question: 'Módulo 1: Si necesitas analizar un video en tiempo real o una imagen compleja, ¿a qué "Agente" deberías recurrir?',
+                options: [
+                    'ChatGPT (El Estratega)',
+                    'Gemini (El Visionario)',
+                    'Un modelo de Excel',
+                    'Google Translate'
+                ],
+                correctIndex: 1,
+                explanation: 'Exacto. Gemini es nativamente multimodal, lo que le permite "ver" y "escuchar" mejor que los modelos basados puramente en texto/lógica.',
+                errorExplanation: 'No. ChatGPT es excelente en lógica y estructura, pero Gemini tiene la ventaja nativa en procesamiento multimodal (video/imagen).'
+            },
+            {
+                question: 'Módulo 2: Según la Técnica Feynman, ¿cuál es la prueba definitiva de que realmente entiendes un concepto?',
+                options: [
+                    'Poder explicárselo a un niño de 6 años (simplificación)',
+                    'Memorizar la definición de Wikipedia',
+                    'Usar palabras técnicas rimbombantes',
+                    'Hacer un resumen de 10 páginas'
+                ],
+                correctIndex: 0,
+                explanation: 'Bien. La complejidad suele disfrazar la falta de entendimiento. Si no puedes hacerlo simple, no lo entiendes.',
+                errorExplanation: 'Falso. Memorizar o usar jerga compleja es "ilusión de competencia". La verdadera maestría está en la simplicidad.'
+            },
+            {
+                question: 'Módulo 3: ¿En qué consiste la técnica de "La Inversión" para estudiar?',
+                options: [
+                    'Leer el libro al revés',
+                    'Pedirle a la IA que te haga las preguntas a ti (Socrático)',
+                    'Preguntar siempre "por qué"',
+                    'Escribir en blanco sobre negro'
+                ],
+                correctIndex: 1,
+                explanation: 'Correcto. Dejar de pedir respuestas y empezar a pedir evaluaciones fuerza a tu cerebro a trabajar (Active Recall).',
+                errorExplanation: 'Incorrecto. La Inversión se refiere a invertir los roles: Tú eres el alumno examinado, la IA es el profesor evaluador.'
+            },
+            {
+                question: 'Módulo 4: ¿Por qué llamamos a la IA un "Piloto Mentiroso" o propenso a alucinaciones?',
+                options: [
+                    'Porque tiene intenciones malvadas',
+                    'Porque predice palabras por probabilidad, no por verdad',
+                    'Porque saca información de sitios de bromas',
+                    'Porque quiere confundir a los estudiantes'
+                ],
+                correctIndex: 1,
+                explanation: 'Exacto. El modelo no "sabe" hechos, solo completa patrones estadísticos. Te mentirá con total confianza si la probabilidad matemática lo sugiere.',
+                errorExplanation: 'Falso. La IA no tiene intenciones ni sentimientos. Su error es puramente probabilístico/estadístico.'
+            },
+            {
+                question: 'Módulo 4: Tu asistente genera un párrafo excelente con una cita bibliográfica. ¿Qué debes hacer?',
+                options: [
+                    'Copiar y pegar, la IA es autora legal',
+                    'Verificar la cita real y reescribir con tus palabras',
+                    'Confiar ciegamente porque suena técnico',
+                    'Descartarlo por miedo'
+                ],
+                correctIndex: 1,
+                explanation: 'Vital. Integridad ante todo: Verifica (porque inventan citas) y Reescribe (para mantener tu autoría y estilo).',
+                errorExplanation: 'Error grave. Copiar textual es plagio y las citas generadas suelen ser falsas (alucinaciones).'
+            },
+            {
+                question: 'FINAL: El curso termina hoy. ¿Qué archivo debes guardar para que tu Asistente "sobreviva" y te ayude en el futuro?',
+                options: [
+                    'El historial de chat en PDF',
+                    'El Prompt Maestro (.txt / Notion)',
+                    'Una captura de pantalla',
+                    'Tu contraseña de Google'
+                ],
+                correctIndex: 1,
+                explanation: '¡Misión Cumplida! El Prompt Maestro es el código fuente de tu asistente. Guárdalo, mejóralo y úsalo en tu carrera.',
+                errorExplanation: 'Insuficiente. El historial es solo el pasado. El Prompt Maestro es la "semilla" para generar futuros chats con la misma inteligencia.'
+            }
+        ],
+        theme: 'amber',
+        footer: 'MÓDULO 4 // PROTOCOLO DE CIERRE'
+    },
+    {
         id: 'closing-reflection',
         layout: 'grand-finale-slide',
         nextLink: '/',
-        nextTitle: 'VOLVER AL INICIO'
+        nextTitle: 'VOLVER AL INICIO',
+        downloadLink: '/curso-ia/papers/modulo4.pdf'
     }
 ];

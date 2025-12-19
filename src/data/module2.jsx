@@ -135,25 +135,71 @@ export const slidesModule2 = [
         id: 'activity-day2',
         layout: 'checklist-slide',
         title: 'MISIÓN: QUANTUM LEAP',
-        subtitle: 'Tema Objetivo: COMPUTACIÓN CUÁNTICA. Entiende lo imposible en 3 pasos.',
+        subtitle: 'Tema Objetivo: COMPUTACIÓN CUÁNTICA. Entiende lo imposible en 3 pasos. Crea tus prompts',
         // Practical application combining multiple AI tools
         tasks: [
             {
                 title: 'Traduce el Concepto (ChatGPT)',
                 tool: 'ChatGPT',
-                desc: 'Prompt: "Explícame la Superposición Cuántica como si fuera una moneda girando. Usa una analogía simple."'
+                desc: 'Ej: Prompt: "Explícame la Superposición Cuántica como si fuera una moneda girando. Usa una analogía simple."'
             },
             {
                 title: 'Estructura la Data (Gemini)',
                 tool: 'Gemini',
-                desc: 'Prompt: "Crea una tabla comparativa técnica: Bit Clásico vs. Qubit (Estados, Velocidad, Tasa de Error)".'
+                desc: 'Ej: Prompt: "Crea una tabla comparativa técnica: Bit Clásico vs. Qubit (Estados, Velocidad, Tasa de Error)".'
             },
             {
                 title: 'Traza la Ruta (Gemini)',
                 tool: 'Gemini',
-                desc: 'Prompt: "Genera un Roadmap de 4 semanas para aprender los fundamentos de Quantum Computing siendo programador."'
+                desc: 'Ej: Prompt: "Genera un Roadmap de 4 semanas para aprender los fundamentos de Quantum Computing siendo programador."'
             }
         ]
+    },
+    {
+        id: 'final-quiz',
+        layout: 'module-final-quiz',
+        title: 'DESAFÍO DE SÍNTESIS',
+        subtitle: '¿Puedes distinguir entre ruido y señal?',
+        questions: [
+            {
+                question: '¿Cuál es la regla de oro de la Técnica Feynman para verificar que entiendes algo?',
+                options: [
+                    'Poder recitar la definición de memoria',
+                    'Usar palabras complejas para sonar experto',
+                    'Explicarlo en términos simples (ELI5)',
+                    'Subrayar todo el texto original'
+                ],
+                correctIndex: 2,
+                explanation: 'Exacto. Si no puedes explicarlo simple, no lo entiendes lo suficiente (Albert Einstein / Richard Feynman).',
+                errorExplanation: 'Incorrecto. La memorización o el lenguaje complejo suelen enmascarar la falta de comprensión profunda.'
+            },
+            {
+                question: 'Estás estudiando dos arquitecturas de CPU diferentes. ¿Qué formato de salida deberías pedirle a la IA?',
+                options: [
+                    'Un poema de 10 estrofas',
+                    'Una Tabla Markdown comparativa',
+                    'Un resumen en un solo párrafo',
+                    'Una nube de palabras'
+                ],
+                correctIndex: 1,
+                explanation: '¡Correcto! Las tablas estructuran la información cara a cara, facilitando la comparación directa de características.',
+                errorExplanation: 'No es lo ideal. Los párrafos o poemas dificultan ver las diferencias y similitudes de un vistazo.'
+            },
+            {
+                question: '¿Qué diferencia clave existe entre "Resumir" y "Sintetizar"?',
+                options: [
+                    'Son sinónimos exactos',
+                    'Resumir es más creativo',
+                    'Sintetizar implica reestructurar y conectar ideas',
+                    'Sintetizar es solo cortar texto'
+                ],
+                correctIndex: 2,
+                explanation: 'Bien. La síntesis es un proceso activo donde reorganizas la información para darle nuevo sentido, no solo recortarla.',
+                errorExplanation: 'Falso. El resumen suele ser una reducción lineal. La síntesis requiere procesamiento y reestructuración mental.'
+            }
+        ],
+        theme: 'emerald',
+        footer: 'MÓDULO 2 // PROCESAMIENTO DE DATOS'
     },
     {
         id: 'closing',
@@ -163,6 +209,7 @@ export const slidesModule2 = [
         tagline: 'Aprenderemos a crear cuestionarios dinámicos que se corrigen solos.',
         footer: '¡BIEN HECHO!',
         nextLink: '/curso-ia/modulo3',
-        nextTitle: 'IR AL MÓDULO 3'
+        nextTitle: 'IR AL MÓDULO 3',
+        downloadLink: '/curso-ia/papers/modulo2.pdf'
     }
 ];

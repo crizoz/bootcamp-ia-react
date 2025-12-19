@@ -12,6 +12,7 @@ import { CenterIconSlide } from '../components/slides/CenterIconSlide';
 import { FormulaSlide } from '../components/slides/FormulaSlide';
 import { ComparisonVerticalSlide } from '../components/slides/ComparisonVerticalSlide';
 import { IdeChecklistSlide } from '../components/slides/IdeChecklistSlide';
+import { ModuleFinalQuizSlide } from '../components/slides/ModuleFinalQuizSlide';
 
 /**
  * Module1
@@ -39,11 +40,6 @@ const Module1 = () => {
         }
     }, [currentSlide]);
 
-    /**
-     * Toggles browser fullscreen mode.
-     * This enhances the presentation experience during live classes
-     * or projected sessions.
-     */
     const toggleFullscreen = () => {
         if (!document.fullscreenElement) {
             document.documentElement.requestFullscreen();
@@ -55,11 +51,6 @@ const Module1 = () => {
     };
 
     useEffect(() => {
-        /**
-         * Global keyboard navigation handler.
-         * Arrow keys and spacebar allow slide navigation without UI interaction,
-         * mimicking a traditional presentation workflow.
-         */
         const handleKeyDown = (e) => {
             if (e.key === 'ArrowRight' || e.key === 'Space') {
                 nextSlide();
@@ -77,13 +68,6 @@ const Module1 = () => {
         };
     }, [nextSlide, prevSlide]);
 
-    /**
-     * Resolves which slide layout component should be rendered
-     * based on the `layout` property of the slide configuration.
-     *
-     * This switch acts as the core of the Slide Engine and allows
-     * new layouts to be added without modifying navigation logic.
-     */
     const renderContent = (slide) => {
         switch (slide.layout) {
             case 'hero-slide':
@@ -114,6 +98,9 @@ const Module1 = () => {
 
             case 'ide-checklist-slide':
                 return <IdeChecklistSlide slide={slide} />;
+
+            case 'module-final-quiz-slide':
+                return <ModuleFinalQuizSlide slide={slide} />;
 
             default:
                 return (

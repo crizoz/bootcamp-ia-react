@@ -1,4 +1,4 @@
-import { Award, ArrowRight } from 'lucide-react';
+import { Award, ArrowRight, Download } from 'lucide-react';
 
 export const HeroSlide = ({ slide, theme = 'indigo' }) => {
     // Receives a theme prop to dynamically adjust visual styling (default: indigo)
@@ -33,7 +33,6 @@ export const HeroSlide = ({ slide, theme = 'indigo' }) => {
             arrow: "text-orange-400"
         },
         amber: {
-            // Used for Module 4 (Amber / Red palette)
             iconGlow: "from-amber-400 to-red-600",
             iconColor: "text-amber-400",
             subtitle: "text-red-400",
@@ -48,16 +47,12 @@ export const HeroSlide = ({ slide, theme = 'indigo' }) => {
 
     return (
         <div className="text-center space-y-6 md:space-y-8 animate-fadeIn px-4 flex flex-col items-center min-h-[60vh] justify-center">
-
-            {/* Main icon with dynamic glow effect */}
             <div className="relative inline-block group">
                 <div className={`absolute -inset-1 bg-gradient-to-r ${s.iconGlow} rounded-full blur opacity-20 group-hover:opacity-40 transition duration-1000`} />
                 <div className="relative p-6 bg-slate-900/50 border border-white/10 rounded-full backdrop-blur-xl shadow-2xl">
                     <Award size={64} className={`${s.iconColor} md:w-20 md:h-20 w-16 h-16 stroke-[1.5]`} />
                 </div>
             </div>
-
-            {/* Headings */}
             <div className="space-y-4">
                 <h1 className="text-5xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-b from-white via-white to-white/50 drop-shadow-sm leading-[0.9]">
                     {slide.title}
@@ -66,29 +61,37 @@ export const HeroSlide = ({ slide, theme = 'indigo' }) => {
                     {slide.subtitle}
                 </h2>
             </div>
-
-            {/* Supporting tagline */}
             <p className={`text-lg md:text-xl ${s.tagline} font-light max-w-2xl mx-auto leading-relaxed`}>
                 {slide.tagline}
             </p>
-
-            {/* Dynamic "Next" button */}
-            {slide.nextLink && (
-                <a
-                    href={slide.nextLink}
-                    className="group relative mt-10 mb-20 inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-slate-900 font-mono tracking-widest border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 overflow-hidden"
-                >
-                    <div className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-0 bg-gradient-to-b from-transparent via-transparent to-slate-700" />
-                    <div className={`absolute inset-0 w-full h-full bg-gradient-to-r ${s.buttonGlow} opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
-                    <span className="relative flex items-center gap-3">
-                        {slide.nextTitle}
-                        <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${s.arrow}`} />
-                    </span>
-                    <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent ${s.buttonBorder} to-transparent opacity-50 group-hover:opacity-100 transition-opacity`} />
-                </a>
-            )}
-
-            {/* Footer */}
+            <div className="flex flex-col md:flex-row items-center justify-center gap-4 w-full max-w-2xl">
+                {slide.downloadLink && (
+                    <a
+                        href={slide.downloadLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-3 bg-white/5 text-white font-bold py-4 px-8 rounded-full border border-white/10 hover:bg-white/10 hover:scale-105 transition-all w-full md:w-auto font-mono tracking-widest text-sm"
+                        title="Descargar Resumen del Módulo"
+                    >
+                        <Download size={20} className="text-gray-300" />
+                        <span>DESCARGAR PDF</span>
+                    </a>
+                )}
+                {slide.nextLink && (
+                    <a
+                        href={slide.nextLink}
+                        className="group relative inline-flex items-center justify-center px-8 py-4 font-bold text-white transition-all duration-200 bg-slate-900 font-mono tracking-widest border border-white/10 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-slate-900 overflow-hidden"
+                    >
+                        <div className="absolute inset-0 w-full h-full -mt-1 rounded-lg opacity-0 bg-gradient-to-b from-transparent via-transparent to-slate-700" />
+                        <div className={`absolute inset-0 w-full h-full bg-gradient-to-r ${s.buttonGlow} opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+                        <span className="relative flex items-center gap-3">
+                            {slide.nextTitle}
+                            <ArrowRight className={`w-5 h-5 group-hover:translate-x-1 transition-transform ${s.arrow}`} />
+                        </span>
+                        <div className={`absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent ${s.buttonBorder} to-transparent opacity-50 group-hover:opacity-100 transition-opacity`} />
+                    </a>
+                )}
+            </div>
             <div className="w-full max-w-md mx-auto pt-8 border-t border-white/5">
                 <p className="text-xs md:text-sm font-mono text-slate-500 uppercase tracking-widest">
                     {slide.footer}

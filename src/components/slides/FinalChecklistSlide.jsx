@@ -14,8 +14,6 @@ import {
 export const FinalChecklistSlide = ({ slide }) => {
     return (
         <div className="w-full max-w-6xl animate-fadeIn flex flex-col items-center gap-8 px-4 h-full justify-center">
-
-            {/* Header */}
             <div className="text-center z-10">
                 <div className="inline-flex items-center gap-2 mb-4 px-4 py-1 rounded-full bg-amber-500/10 border border-amber-500/50 text-amber-400 backdrop-blur-md">
                     <Power size={16} className="animate-pulse" />
@@ -34,18 +32,14 @@ export const FinalChecklistSlide = ({ slide }) => {
             </div>
 
             <div className="flex flex-col lg:flex-row gap-8 w-full items-center justify-center">
-
-                {/* Checklist levels */}
                 <div className="w-full max-w-xl grid gap-4">
                     {slide.levels.map((level, idx) => {
-                        // Icon mapping driven by slide configuration
                         const Icon = {
                             Cpu,
                             Database: Layers,
                             ShieldCheck,
                             Eye
                         }[level.icon] || CheckCircle;
-
                         return (
                             <div
                                 key={idx}
@@ -70,8 +64,6 @@ export const FinalChecklistSlide = ({ slide }) => {
                                         </p>
                                     </div>
                                 </div>
-
-                                {/* Visual toggle indicator (state is illustrative, not interactive logic) */}
                                 <div className="relative z-10 pl-4">
                                     <div className="text-gray-600 group-hover:text-green-400 transition-colors duration-300 transform group-hover:scale-110">
                                         <div className="group-hover:hidden">

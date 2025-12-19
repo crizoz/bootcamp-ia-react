@@ -107,7 +107,7 @@ export const slidesModule3 = [
         id: 'activity-day3',
         layout: 'checklist-slide',
         title: 'MISIÓN DE HOY',
-        subtitle: 'Ejecuta el protocolo de Evaluación y Diseño:',
+        subtitle: 'Elige un tema de tu preferencia. Ejecuta el protocolo de Evaluación y Diseño:',
         tasks: [
             {
                 title: 'El Examen Imposible',
@@ -127,6 +127,52 @@ export const slidesModule3 = [
         ]
     },
     {
+        id: 'final-quiz',
+        layout: 'module-final-quiz',
+        title: 'AUDITORÍA VISUAL',
+        subtitle: '¿Dominas el arte de la evaluación y el diseño con IA?',
+        questions: [
+            {
+                question: 'En el paradigma de "La Inversión", ¿cuál es el principal beneficio de pedirle a la IA que te examine a ti?',
+                options: [
+                    'Ahorrar tiempo de lectura',
+                    'Practicar "Active Recall" (Recuerdo Activo)',
+                    'Entrenar a la IA para que sea más lista',
+                    'Generar resúmenes automáticos'
+                ],
+                correctIndex: 1,
+                explanation: '¡Correcto! Forzar a tu cerebro a recuperar la información (Active Recall) crea conexiones neuronales mucho más fuertes que leer pasivamente.',
+                errorExplanation: 'Incorrecto. El objetivo no es ahorrar tiempo ni entrenar a la IA, sino forzar a tu cerebro a trabajar para retener la información.'
+            },
+            {
+                question: 'Quieres mejorar un informe técnico. ¿Cuál es el prompt más efectivo para obtener feedback real?',
+                options: [
+                    '¿Está bien escrito este texto?',
+                    'Mejora la redacción para que suene profesional',
+                    'Actúa como Profesor Senior y evalúa esto con una rúbrica de criterios técnicos',
+                    'Reescribe esto con palabras más complejas'
+                ],
+                correctIndex: 2,
+                explanation: 'Exacto. Definir un ROL (Profesor) y un instrumento de evaluación (Rúbrica) transforma una corrección vaga en una auditoría de calidad.',
+                errorExplanation: 'No es lo ideal. Pedir "mejorar" o "arreglar" suele resultar en cambios de estilo subjetivos sin explicar el "por qué" de los errores técnicos.'
+            },
+            {
+                question: 'Al usar IA para generar estructuras de Mapas Mentales, ¿qué valor clave buscamos obtener sobre el texto plano?',
+                options: [
+                    'Que se vea más bonito en la presentación',
+                    'Visualizar las relaciones y jerarquías entre conceptos',
+                    'Reducir la cantidad de palabras',
+                    'Generar imágenes artísticas abstractas'
+                ],
+                correctIndex: 1,
+                explanation: 'Bien. El poder del pensamiento visual y los mapas mentales radica en entender cómo se conectan las ideas (relaciones), no solo definirlas.',
+                errorExplanation: 'Falso. Aunque se vea mejor, el valor pedagógico real es entender la estructura y la jerarquía de la información.'
+            }
+        ],
+        theme: 'orange',
+        footer: 'MÓDULO 3 // CONTROL DE CALIDAD (QA)'
+    },
+    {
         id: 'closing',
         layout: 'hero-slide',
         title: 'MÓDULO 4:',
@@ -134,6 +180,7 @@ export const slidesModule3 = [
         tagline: 'El último paso antes de graduarte del Bootcamp.',
         footer: 'PRÓXIMAMENTE',
         nextLink: '/curso-ia/modulo4',
-        nextTitle: 'FINALIZAR'
+        nextTitle: 'FINALIZAR',
+        downloadLink: '/curso-ia/papers/modulo3.pdf'
     }
 ];

@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-import { Power, Home, Activity } from 'lucide-react';
+import { Power, Home, Activity, Download } from 'lucide-react';
 
 export const GrandFinaleSlide = ({ slide }) => {
     const [bootStatus, setBootStatus] = useState('standby');
@@ -7,7 +7,6 @@ export const GrandFinaleSlide = ({ slide }) => {
     const [progress, setProgress] = useState(0);
     const logsEndRef = useRef(null);
 
-    // Ordered system boot messages
     const bootSequence = [
         "Inicializando Kernel...",
         "Cargando Módulo 'Identidad'... OK",
@@ -20,7 +19,6 @@ export const GrandFinaleSlide = ({ slide }) => {
         "INICIANDO SISTEMA FINAL..."
     ];
 
-    // Starts the simulated boot sequence
     const startBoot = () => {
         setBootStatus('booting');
         let currentLog = 0;
@@ -46,13 +44,9 @@ export const GrandFinaleSlide = ({ slide }) => {
 
     return (
         <div className="w-full h-full flex flex-col items-center justify-center font-mono z-10">
-
-            {/* Technical background grid */}
             <div className="absolute inset-0 opacity-20 pointer-events-none -z-20 overflow-hidden">
                 <div className="absolute inset-0 bg-[linear-gradient(rgba(245,158,11,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(245,158,11,0.1)_1px,transparent_1px)] bg-[size:40px_40px]" />
             </div>
-
-            {/* Confetti overlay displayed once system is online */}
             {bootStatus === 'online' && (
                 <div className="fixed inset-0 w-screen h-screen pointer-events-none z-0 overflow-hidden">
                     {[...Array(70)].map((_, i) => (
@@ -73,8 +67,6 @@ export const GrandFinaleSlide = ({ slide }) => {
                     ))}
                 </div>
             )}
-
-            {/* State: Standby */}
             {bootStatus === 'standby' && (
                 <div className="z-10 flex flex-col items-center animate-fadeIn p-4 text-center relative">
                     <div className="mb-8">
@@ -85,7 +77,6 @@ export const GrandFinaleSlide = ({ slide }) => {
                             Listo para Desplegar
                         </h1>
                     </div>
-
                     <button
                         onClick={startBoot}
                         className="group relative w-28 h-28 md:w-36 md:h-36 rounded-full border-4 border-amber-500/30
@@ -108,8 +99,6 @@ export const GrandFinaleSlide = ({ slide }) => {
                     </p>
                 </div>
             )}
-
-            {/* State: Booting */}
             {bootStatus === 'booting' && (
                 <div className="z-10 w-full max-w-3xl p-4 animate-fadeIn relative">
                     <div className="bg-slate-900/90 border border-amber-500/30 rounded-xl p-6 shadow-2xl
@@ -129,7 +118,6 @@ export const GrandFinaleSlide = ({ slide }) => {
                             ))}
                             <div ref={logsEndRef} />
                         </div>
-
                         <div className="mt-4 pt-4 border-t border-amber-500/20 relative z-10">
                             <div className="flex justify-between text-xs text-amber-400 mb-1 uppercase tracking-wider">
                                 <span>Cargando sistema...</span>
@@ -149,8 +137,6 @@ export const GrandFinaleSlide = ({ slide }) => {
                     </div>
                 </div>
             )}
-
-            {/* State: Online / Success */}
             {bootStatus === 'online' && (
                 <div className="z-10 flex flex-col items-center text-center animate-zoomIn px-4 py-12 relative overflow-visible">
                     <div className="mb-8 relative">
@@ -166,14 +152,12 @@ export const GrandFinaleSlide = ({ slide }) => {
                             strokeWidth={1.5}
                         />
                     </div>
-
                     <h1 className="text-5xl md:text-8xl font-black text-transparent bg-clip-text
                                    bg-gradient-to-b from-white via-amber-200 to-orange-400
                                    drop-shadow-2xl mb-8 tracking-tighter leading-none"
                     >
                         ¡FELICITACIONES!
                     </h1>
-
                     <div className="bg-amber-950/60 border-2 border-amber-500/50 px-12 py-8
                                     rounded-3xl backdrop-blur-md shadow-[0_0_60px_rgba(245,158,11,0.3)]
                                     mb-12 transform hover:scale-105 transition-transform duration-500"
@@ -186,29 +170,41 @@ export const GrandFinaleSlide = ({ slide }) => {
                             Facultad de Ingeniería <span className="text-white">UNAB</span>
                         </p>
                     </div>
-
-                    {slide.nextLink && (
-                        <a
-                            href={slide.nextLink}
-                            className="group relative px-12 py-5 bg-gradient-to-r from-amber-600 to-orange-600
+                    <div className="flex flex-col items-center justify-center gap-4 w-full max-w-2xl">
+                        {slide.nextLink && (
+                            <a
+                                href={slide.nextLink}
+                                className="group relative px-12 py-5 bg-gradient-to-r from-amber-600 to-orange-600
                                        text-white font-black text-xl tracking-[0.2em] rounded-full
                                        hover:from-amber-500 hover:to-orange-500
                                        transition-all hover:scale-105 active:scale-95
                                        shadow-[0_0_40px_rgba(245,158,11,0.6)] z-20 overflow-hidden"
-                        >
-                            <span className="flex items-center gap-3 relative z-10">
-                                <Home size={24} /> {slide.nextTitle}
-                            </span>
-                            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
+                            >
+                                <span className="flex items-center gap-3 relative z-10">
+                                    <Home size={24} /> {slide.nextTitle}
+                                </span>
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent
                                             -translate-x-full group-hover:translate-x-full
                                             transition-transform duration-700 ease-in-out skew-x-12"
-                            />
-                        </a>
-                    )}
+                                />
+                            </a>
+                        )}
+                        {slide.downloadLink && (
+                            <a
+                                href={slide.downloadLink}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center justify-center gap-3 bg-white/5 text-white font-bold py-4 px-8 rounded-full border border-white/10 hover:bg-white/10 hover:scale-105 transition-all w-full md:w-auto font-mono tracking-widest text-sm"
+                                title="Descargar Resumen del Módulo"
+                            >
+                                <Download size={20} className="text-gray-300" />
+                                <span>DESCARGAR PDF</span>
+                            </a>
+                        )}
+                    </div>
                 </div>
             )}
 
-            {/* Local animations */}
             <style>{`
                 .animate-spin-slow { animation: spin 4s linear infinite; }
                 .animate-scanline { animation: scanline 3s linear infinite; }

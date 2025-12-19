@@ -153,7 +153,6 @@ export const FormulaSlide = ({ slide }) => {
                 </p>
             </div>
 
-            {/* Local animations and scrollbar styling */}
             <style>{`
                 @keyframes fadeIn {
                     from { opacity: 0; transform: translateY(20px); filter: blur(10px); }
