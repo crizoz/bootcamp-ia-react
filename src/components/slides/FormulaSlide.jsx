@@ -113,10 +113,9 @@ export const FormulaSlide = ({ slide }) => {
             {/* Live prompt preview */}
             <div
                 className="w-full max-w-4xl mt-2 md:mt-4 bg-black/60 rounded-xl p-3 md:p-6
-                           border border-white/10 font-mono text-left shadow-2xl
-                           relative overflow-hidden group animate-fadeIn
-                           flex flex-col max-h-[200px] md:max-h-none
-                           overflow-y-auto custom-scrollbar"
+               border border-white/10 font-mono text-left shadow-2xl
+               relative overflow-hidden group animate-fadeIn
+               flex flex-col h-auto"
                 style={{ animationDelay: '0.4s' }}
             >
                 <div className="flex items-center gap-2 mb-2 md:mb-4 border-b border-white/10 pb-2 shrink-0">

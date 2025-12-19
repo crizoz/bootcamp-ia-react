@@ -24,6 +24,7 @@ Originally built as a series of independent pages, the project has evolved into 
 - **AI Quiz Engine**: An automated tool that mimics AI "thinking" to generate questions and provide personalized feedback.
 - **Dynamic Checklists & Rubrics**: Progress tracking via "Flight Checklists" and automated "AI Rubrics" to audit student prompts.
 - **Resource Hub**: One-click access to download synthesized PDF summaries (Papers) optimized for students.
+- **Gamified "Neural" Assessments**: Transformed standard tests into immersive "Synchronization Challenges" featuring combo streaks, reactive ambient lighting (Orb System), and haptic-like visual feedback.
 
 ## 📦 Tech Stack
 
@@ -48,6 +49,9 @@ Since I needed to host multiple modules on a single AWS server, I configured Vit
 ### 4. Professional Refactoring
 The final stage (Current Commit) involved modularizing the "Spaghetti Code" into independent React components. I implemented professional standards: JSDoc, Jsx-clean formatting, and centralized theme-based styling.
 
+### 5. Advanced Gamification Logic
+For the final assessments, I developed the `GameQuizSlide`, a component acting as a complex state machine (`Intro` → `Playing` → `Feedback` → `Results`). I implemented scoped CSS injection directly within the React component to handle specific animations (like the "Shake Error" effect) without bloating the global Tailwind configuration.
+
 
 
 ## 📚 Key Learnings
@@ -55,6 +59,7 @@ The final stage (Current Commit) involved modularizing the "Spaghetti Code" into
 ### 🧠 Frontend Architecture:
 - **Component Reusability**: Created a data-driven approach where content is stored in arrays and rendered by a single master component.
 - **State Management**: Used React state to create "artificial delays," making the platform feel like a real processing AI.
+- **Scoped Styling Patterns**: Learned to inject inline `<style>` blocks within React components for isolated, complex animations that sit outside the utility-class system.
 
 ### 🛤️ DevOps & Deployment:
 - **Vite Mastery**: Understanding base paths for subdirectories in production.
@@ -62,6 +67,7 @@ The final stage (Current Commit) involved modularizing the "Spaghetti Code" into
 
 ### 🎨 UI/UX Design:
 - **Advanced Tailwind**: Deep dive into backdrop filters, gradients, and custom animations (`animate-pulse`, `animate-scan`) to keep students engaged.
+- **Visual Feedback Loops**: Implemented "Focus Mode" logic (blurring irrelevant options) and reactive background colors to guide user attention during quizzes.
 
 ## 💭 Future Improvements
 - **Real API Integration**: Connect to Google Gemini API for live testing.
@@ -80,3 +86,7 @@ The final stage (Current Commit) involved modularizing the "Spaghetti Code" into
 ## 🍿 Demo
 
 Live project hosted at: [Netlify Demo](https://aibootcampunabtest.netlify.app)
+
+## Author
+Bastián Carrizo  
+Developed during internship at Universidad Andrés Bello (UNAB)

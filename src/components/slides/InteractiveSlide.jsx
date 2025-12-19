@@ -61,7 +61,7 @@ export const InteractiveSlide = ({ slide }) => {
                         </div>
 
                         {/* Right Column: QR + Link */}
-                        <div className="flex flex-col items-center justify-center relative w-full">
+                        <div className="flex max-w-full flex-col items-center justify-center relative w-full p-4 overflow-hidden">
                             <div className="absolute inset-0 bg-gradient-to-tr from-emerald-500/20 to-transparent rounded-full blur-3xl animate-pulse" />
 
                             <div className="bg-white p-3 md:p-4 rounded-3xl shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500 relative">
@@ -78,9 +78,7 @@ export const InteractiveSlide = ({ slide }) => {
                             </div>
 
                             {/* URL bar */}
-                            <div className="mt-6 md:mt-8 w-full bg-black/40 border border-white/10 rounded-xl p-2 flex items-center justify-between pl-3 md:pl-4 backdrop-blur-sm">
-
-                                {/* min-w-0 + flex-1 enables proper truncation inside flex */}
+                            <div className="mt-6 md:mt-8 max-w-full w-full bg-black/40 border border-white/10 rounded-xl p-2 flex items-center justify-between pl-3 md:pl-4 backdrop-blur-sm">
                                 <span className="text-emerald-400 font-mono truncate mr-2 md:mr-4 text-xs md:text-sm lg:text-base opacity-80 min-w-0 flex-1">
                                     {slide.code}
                                 </span>
